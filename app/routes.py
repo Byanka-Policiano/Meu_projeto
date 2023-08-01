@@ -115,3 +115,7 @@ def contato():
 @app.route('/sobre')
 def sobre():
     return 'Meu nome é Byanka, eu tenho 18 anos e estou cursando o 3º ano do ensino médio.'
+
+@app.route('/projetos')
+def projetos():
+    return 'Projetos'
