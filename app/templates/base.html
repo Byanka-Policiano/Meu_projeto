@@ -5,52 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{titulo}}</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #444;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 16px;
-        }
-
-        nav a:hover {
-            background-color: #555;
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barbie&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
 </head>
 
 <body>
     <header>
-        <h1>Meu Website</h1>
+        <h1 style="margin: 0;">Meu Website</h1>
     </header>
 
     <nav>
@@ -59,9 +21,9 @@
         <a href="/contatos">Contato</a>
     </nav>
 
-{% block conteudo %}
+    {% block conteudo %}
 
-{% endblock %}
+    {% endblock %}
 
     <footer>
         <p>Todos os direitos reservados &copy; 2023</p>
