@@ -13,3 +13,7 @@ def contatos():
 @app.route('/sobre')
 def sobre():
     return render_template('sobre.html',titulo = 'Sobre')
+
+@app.route('/produtos')
+def produtos():
+    return render_template('produto.html',titulo = 'Produtos')
