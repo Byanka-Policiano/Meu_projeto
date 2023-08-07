@@ -4,12 +4,35 @@
 <section>
     <h2>Contatos</h2>
     <p>Entre em contato conosco para obter mais informações sobre nossos serviços e soluções de inteligência artificial. Estamos prontos para atendê-lo!</p>
-    <ul>
-        <li>E-mail: contato@exemplo.com</li>
-        <li>Telefone: (00) 1234-5678</li>
-    </ul>
+
+    <div class="contato-form">
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                {{formulario.nome}}
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                {{formulario.email}}
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                {{formulario.telefone}}
+            </div>
+
+            <div class="form-group">
+                <label for="mensagem">Mensagem:</label>
+                {{formulario.}}
+            </div>
+
+           {{formulario.enviar}}
+        </form>
+    </div>
+
     <p>Também estamos presentes nas redes sociais. Siga-nos para ficar por dentro das novidades e atualizações:</p>
-    <ul>
+    <ul class="social-links">
         <li><a href="https://www.facebook.com/exemplo">Facebook</a></li>
         <li><a href="https://www.instagram.com/exemplo">Instagram</a></li>
         <li><a href="https://www.linkedin.com/company/exemplo">LinkedIn</a></li>
