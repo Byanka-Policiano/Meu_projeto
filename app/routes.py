@@ -1,20 +1,26 @@
 from app import app
-from flask import render_template
-from app.forms import contato
+from flask import render_template, url_for, request, flash
+from app.forms import Contato
 
 @app.route('/')
 def index():
     return render_template('index.html',titulo = 'Página inicial')
 
-@app.route('/contatos')
+@app.route('/contatos', methods=['POST', 'GET'])
 def contatos():
     dados_formulario = None
-    formulario = contato()
+    formulario = Contato()
+    print('Acessou a rota contatos!')
     if formulario.validate_on_submit():
         nome = formulario.nome.data
         email = formulario.email.data
         telefone = formulario.telefone.data
         mensagem = formulario.mensagem.data
+        print('O formulário foi enviado.')
+        print(nome)
+        print(email)
+        print(telefone)
+        print(mensagem)
 
         dados_formulario = {
             'nome': nome,
@@ -22,7 +28,7 @@ def contatos():
             'telefone': telefone,
             'mensagem': mensagem
         }
-    return render_template('contatos.html',titulo = 'Contatos')
+    return render_template('contatos.html', titulo = 'Contatos',formulario = formulario,dados_formulario = dados_formulario)
 
 @app.route('/sobre')
 def sobre():
