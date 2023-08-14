@@ -37,3 +37,7 @@ def sobre():
 @app.route('/produtos')
 def produtos():
     return render_template('produto.html',titulo = 'Produtos')
+
+@app.route('/teste')
+def teste():
+    return render_template('teste.html',titulo = 'Teste')

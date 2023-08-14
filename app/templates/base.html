@@ -4,31 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Essa página é a página teste.">
+    <meta name="author" content="Byanka Policiano Santos">
     <title>Inteligência Artificial Solutions</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barbie&display=swap" rel="stylesheet">
+    <!-- Adicione o link para o Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
 </head>
 
 <body>
-    <header>
-        <h1 style="margin: 0;">Inteligência Artificial Solutions</h1>
+    <header class="bg-light text-center py-4">
+        <h1 class="m-0">Inteligência Artificial Solutions</h1>
     </header>
 
-    <nav>
-        <a href="/">Página Inicial</a>
-        <a href="/sobre">Sobre</a>
-        <a href="/contatos">Contato</a>
-        <a href="/produtos">Produtos</a>
+    <nav class="bg-light p-2 text-center">
+        <a href="/" class="text-dark text-decoration-none p-2">Página Inicial</a>
+        <a href="/sobre" class="text-dark text-decoration-none p-2">Sobre</a>
+        <a href="/contatos" class="text-dark text-decoration-none p-2">Contato</a>
+        <a href="/produtos" class="text-dark text-decoration-none p-2">Produtos</a>
     </nav>
 
-    {% block conteudo %}
+    <div class="container mt-4">
+        {% block conteudo %}
 
-    {% endblock %}
+        {% endblock %}
+    </div>
 
-    <footer>
-        <p>Todos os direitos reservados &copy; 2023</p>
+    <footer class="bg-light text-center py-2">
+        <p class="m-0">Todos os direitos reservados &copy; 2023</p>
     </footer>
+
+    <!-- Adicione o link para o Bootstrap JS e Popper.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
