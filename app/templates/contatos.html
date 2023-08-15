@@ -3,10 +3,20 @@
 {% block conteudo %}
 <section>
     <h2>Contatos</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for mensagem in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ mensagem }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <p>Entre em contato conosco para obter mais informações sobre nossos serviços e soluções de inteligência artificial. Estamos prontos para atendê-lo!</p>
 
     <div class="contato-form">
         <form action="" method="post">
+            {{ formulario.csrf_token }}
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 {{ formulario.nome }}
