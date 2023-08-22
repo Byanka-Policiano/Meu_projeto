@@ -19,25 +19,25 @@
             {{ formulario.csrf_token }}
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                {{ formulario.nome }}
+                {{ formulario.nome(class="form-control", placeholder="Digite aqui o seu nome") }}
             </div>
 
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                {{ formulario.email }}
+                {{ formulario.email(class="form-control", placeholder="name@example.com") }}
             </div>
 
             <div class="form-group">
                 <label for="telefone">Telefone:</label>
-                {{ formulario.telefone }}
+                {{ formulario.telefone(class="form-control", placeholder="Digite aqui seu telefone") }}
             </div>
 
             <div class="form-group">
                 <label for="mensagem">Mensagem:</label>
-                {{ formulario.mensagem }}
+                {{ formulario.mensagem(class="form-control", rows="3", placeholder="Digite sua mensagem") }}
             </div>
 
-           {{ formulario.enviar }}
+           {{ formulario.enviar(class="btn btn-success") }}
         </form>
     </div>
 

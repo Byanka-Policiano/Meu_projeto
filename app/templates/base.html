@@ -24,8 +24,27 @@
         <a href="/sobre" class="text-dark text-decoration-none p-2">Sobre</a>
         <a href="/contatos" class="text-dark text-decoration-none p-2">Contato</a>
         <a href="/produtos" class="text-dark text-decoration-none p-2">Produtos</a>
-        <a href="/cadastro" class="text-dark text-decoration-none p-2">Cadastre-se</a>
-        <a href="/login" class="text-dark text-decoration-none p-2">Login</a>
+        {% if session['email'] %}
+        <a class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Olá, {{ session['nome'].capitalize() }}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <h6 class="dropdown-header">Informações do Usuário</h6>
+            <div class="dropdown-divider"></div>
+            <p class="dropdown-item"><strong>Nome:</strong> {{ session['nome'] }}</p>
+            <p class="dropdown-item"><strong>Email:</strong> {{ session['email'] }}</p>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/editar">Editar Dados</a>
+            <a class="dropdown-item" href="/sair">Sair</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/excluir_conta" onclick="return confirm('Tem certeza de que deseja excluir sua conta? Essa ação é irreversível.');">Excluir Conta</a>
+          </div>
+        </a>
+        {% else %}
+        <a class="nav-item"><a class="nav-link" href="/cadastro">Cadastre-se</a></a>
+        <a class="nav-item"><a class="nav-link" href="/login">Login</a></a>
+        {% endif %}
         
     </nav>
 
