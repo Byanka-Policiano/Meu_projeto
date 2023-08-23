@@ -39,9 +39,15 @@ def cadastro():
         nome = cadastro.nome.data
         sobrenome = cadastro.sobrenome.data
         email = cadastro.email.data
+        telefone = cadastro.telefone.data
+        cpf = cadastro.cpf.data
+        endereco = cadastro.endereco.data
+        bairro = cadastro.bairro.data
+        cidade = cadastro.cidade.data
+        uf = cadastro.uf.data
         senha = cadastro.senha.data
         hash_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
-        novo_cadastro = CadastroModel(nome = nome, sobrenome=sobrenome, email=email, senha=hash_senha)
+        novo_cadastro = CadastroModel(nome = nome, sobrenome = sobrenome, email = email, telefone = telefone, cpf = cpf, endereco = endereco, bairro = bairro, cidade = cidade, uf = uf, senha = hash_senha)
         db.session.add(novo_cadastro)
         db.session.commit() 
 
@@ -64,6 +70,9 @@ def login():
                 session['email'] = usuario.email
                 session['nome'] = usuario.nome
                 session['sobrenome'] = usuario.sobrenome
+                session['cidade'] = usuario.cidade
+                session['uf'] = usuario.uf
+
                 time.sleep(2)
                 return redirect(url_for('index'))
             else:
@@ -96,12 +105,24 @@ def editar():
         usuario.nome = request.form.get('nome')
         usuario.sobrenome = request.form.get('sobrenome')
         usuario.email = request.form.get('email')
+        usuario.telefone = request.form.get('telefone')
+        usuario.cpf = request.form.get('cpf')
+        usuario.endereco = request.form.get('endereco')
+        usuario.bairro = request.form.get('bairro')
+        usuario.cidade = request.form.get('cidade')
+        usuario.uf = request.form.get('uf')
         senha = request.form.get('senha')
         usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
         db.session.commit() 
         session['email'] = usuario.email
         session['nome'] = usuario.nome
         session['sobrenome'] = usuario.sobrenome
+        session['telefone'] = usuario.telefone
+        session['cpf'] = usuario.cpf
+        session['endereco'] = usuario.endereco
+        session['bairro'] = usuario.bairro
+        session['cidade'] = usuario.cidade
+        session['uf'] = usuario.uf
         session['senha'] = usuario.senha
         flash('Seus dados foram atualizados com sucesso!')
 
@@ -115,3 +136,16 @@ def sair():
      session['sobrenome'] = None
      session['senha'] = None
      return redirect(url_for('login'))
+
+@app.route('/excluir_conta', methods=['GET'])
+def excluir_conta():
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    
+    usuario = CadastroModel.query.filter_by(email = session['email']).first()
+    db.session.delete(usuario)
+    db.session.commit()
+    session.clear()
+
+    flash('Sua conta foi excluida com sucesso!')
+    return redirect(url_for('cadastro'))

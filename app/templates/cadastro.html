@@ -1,42 +1,78 @@
 {% extends 'base.html' %}
 
-
 {% block conteudo %}
-<section class="cadastro-section my-10"> <!-- Adicionei a classe 'my-5' para adicionar margens verticalmente -->
+<section class="cadastro-section my-5">
     <div class="container">
         {% with messages = get_flashed_messages() %}
-       {% if messages %}
-         {% for messages in messages %}
-          <div class="alert alert-success" role="alert">
-            {{messages}}
-          </div>
-          
-            {% endfor %}
-          {% endif %}
-       {% endwith %}
-           <h2 class="text-center">Cadastre-se</h2>
-           <form action="" method="post" class="cadastro-form">
-               {{cadastro.csrf_token}}
-               <div class="mb-3">
-                   <label for="nome" class="form-label">Nome:</label>
-                    {{cadastro.nome}}
-               </div>
-               <div class="mb-3">
-                   <label for="sobrenome" class="form-label">Sobrenome:</label>
-                    {{cadastro.sobrenome}}
-               </div>
-               <div class="mb-3">
-                   <label for="email" class="form-label">E-mail:</label>
-                    {{cadastro.email}}
-               </div>
-               <div class="mb-3">
-                   <label for="senha" class="form-label">Senha:</label>
-                     {{cadastro.senha}}
-               </div>
-   
-               {{cadastro.enviar(class="btn btn-primary") }}
-               
-           </form>
-       </div>
-   </section>
-   {% endblock %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <h2 class="text-center">Cadastre-se</h2>
+        <form action="" method="post" class="cadastro-form">
+            {{ cadastro.csrf_token }}
+            
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="nome" class="form-label">Nome:</label>
+                    {{ cadastro.nome(class="form-control", placeholder="Digite aqui o seu nome") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="sobrenome" class="form-label">Sobrenome:</label>
+                    {{ cadastro.sobrenome(class="form-control", placeholder="Digite aqui o seu sobrenome") }}
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">E-mail:</label>
+                    {{ cadastro.email(class="form-control", placeholder="Digite aqui o seu e-mail") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="telefone" class="form-label">Telefone:</label>
+                    {{ cadastro.telefone(class="form-control", placeholder="Digite aqui o seu telefone") }}
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="cpf" class="form-label">CPF:</label>
+                    {{ cadastro.cpf(class="form-control", placeholder="Digite aqui o seu CPF") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="endereco" class="form-label">Endereço (Rua com número):</label>
+                    {{ cadastro.endereco(class="form-control", placeholder="Digite aqui o seu endereço") }}
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="bairro" class="form-label">Bairro:</label>
+                    {{ cadastro.bairro(class="form-control", placeholder="Digite aqui o seu bairro") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="cidade" class="form-label">Cidade:</label>
+                    {{ cadastro.cidade(class="form-control", placeholder="Digite aqui o seu cidade") }}
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="uf" class="form-label">UF:</label>
+                    {{ cadastro.uf(class="form-control", placeholder="Digite aqui o seu estado") }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="senha" class="form-label">Senha:</label>
+                    {{ cadastro.senha(class="form-control", placeholder="Digite aqui a sua senha") }}
+                </div>
+            </div>
+            
+            {{ cadastro.enviar(class="btn btn-primary") }}
+        </form>
+    </div>
+</section>
+{% endblock %}

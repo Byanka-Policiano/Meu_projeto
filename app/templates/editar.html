@@ -30,7 +30,38 @@
                 <label for="email" class="form-label">E-mail:</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ session['email'] }}" required>
             </div>
+
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone:</label>
+                <input type="tel" class="form-control" id="telefone" name="telefone" value="{{ session['telefone'] }}" required>
+            </div> 
             
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF:</label>
+                <input type="number" class="form-control" id="cpf" name="cpf" value="{{ session['cpf'] }}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="endereco" class="form-label">Endereço:</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" value="{{ session['endereco'] }}" required>
+            </div> 
+            
+            <div class="mb-3">
+                <label for="bairro" class="form-label">Bairro:</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" value="{{ session['bairro'] }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="cidade" class="form-label">Cidade:</label>
+                <input type="text" class="form-control" id="cidade" name="cidade" value="{{ session['cidade'] }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="uf" class="form-label">Estado:</label>
+                <input type="text" class="form-control" id="uf" name="uf" value="{{ session['uf'] }}" required>
+            </div>
+
+
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha:</label>
                 <input type="password" class="form-control" id="senha" name="senha" required>
